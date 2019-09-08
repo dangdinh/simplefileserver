@@ -12,9 +12,10 @@ import java.util.List;
  * @since   2019-09-06
  */
 public class FileUtils {
+    public static final String NOT_FOUND_FILE_ERR = "File does not exist on server. please using index and then get another";
     /**
      * Get corresponding extension based on input file
-     * @param file
+     * @param f file
      * @return file extension
      */
     public static String getExtension(File f) {

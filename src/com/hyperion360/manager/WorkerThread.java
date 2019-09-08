@@ -45,6 +45,7 @@ public class WorkerThread extends Thread {
                          int read = 0;
                          while ((read = bis.read(bufferArr)) != -1) {
                              out.write(bufferArr, 0, read);
+                             out.flush();
                          }
 
                          bis.close();

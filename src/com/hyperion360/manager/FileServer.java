@@ -20,13 +20,12 @@ public class FileServer {
     public static String FILE_DIR = "D:\\";
 
     public static void main(String[] args) {
-//        if (args.length == 0) {
-//            System.err.println("No arguments");
-//        } else if (args.length == 1 && args[0].contains("fileDir")) {
-//            FILE_DIR = String.valueOf(args[0]).replace("fileDir", "").replace("=", "").trim();
-//        } else {
-//            System.err.println("Need to configure fileDir argument");
-//        }
+        if (args.length == 1 && args[0].contains("fileDir")) {
+            FILE_DIR = String.valueOf(args[0]).replace("fileDir", "").replace("=", "").trim();
+        } else {
+            System.err.println("Missing fileDir argument when starting server");
+            System.exit(0);
+        }
         try {
             ExecutorService executor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);

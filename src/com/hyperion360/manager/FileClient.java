@@ -35,7 +35,10 @@ public class FileClient {
             socketWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             outputWriter = new BufferedOutputStream(System.out);
             while(true){
-                System.out.println("Enter your command to access file:");
+                System.out.println("====================================================");
+                System.out.println("Enter some below commands to access file on server :");
+                System.out.println("--> index - get list all text fileds (.txt)");
+                System.out.println("--> get [file-name] - download file content");
                 userCommand = inputUserReader.readLine();
                 socketWriter.write(userCommand);
                 socketWriter.newLine();
@@ -47,8 +50,11 @@ public class FileClient {
                 while ((read = socketReader.read(bufferArr)) != -1) {
                     outputWriter.write(bufferArr, 0, read);
                     outputWriter.flush();
+                    if(socketReader.available() <= 0){
+                        break;
+                    }
                 }
-                System.out.println("end");
+                System.out.println("\n");
             }
         } catch(Exception ex){
             System.out.println("Exception FileClient: " + ex);

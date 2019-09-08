@@ -1,10 +1,10 @@
 package com.hyperion360.command;
 
 import com.hyperion360.manager.FileServer;
+import com.hyperion360.utils.FileUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.charset.Charset;
 
 /**
  * Processing file based on user input command
@@ -22,6 +22,8 @@ public class GetFileCommand implements CommandStrategy<InputStream> {
         try {
             if (file.exists()) {
                 return new FileInputStream(file);
+            } else {
+                return new ByteArrayInputStream(FileUtils.NOT_FOUND_FILE_ERR.getBytes(Charset.forName("UTF-8")));
             }
         }catch (Exception ex){
             System.out.println("Exception in GetFileCommand: " + ex);
