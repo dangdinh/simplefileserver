@@ -4,12 +4,13 @@
   The server has a list of available text files (**.txt**) that can be downloaded by multiple clients.  
    
 ## Prerequisites  
-  ### Default Socker Configuration
+ ### Default Socker Configuration
   Below are some constant configure on socket
-  | Variable                | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| SERER_PORT| localhost (127.0.0.1)                                  |
-| SERVER_PORT| 7777                                  |
+  
+  | Variable     | Description                 |
+  | -------------| --------------------------- |
+  | SERER_PORT   | localhost (127.0.0.1)       |
+  | SERVER_PORT  | 7777                        |
   
  ### Location server and client program
  >Server:  /out/artifacts/simplefileserver_jar          
